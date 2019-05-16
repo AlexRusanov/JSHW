@@ -1,15 +1,16 @@
 const notAllowedMassage = 'You are not allowed to visit this website';
-const welcome = 'Welcome, ';
+const welcomeMassage = 'Welcome, ';
 
 let userName = prompt('Enter your name'),
-    userAge = prompt('Enter your age');
+    userAge = Number(prompt('Enter your age'));
 
-if (!userName) {
+while (!userName) {
     userName = prompt('You have not entered your name. Please enter your name', userName);
 }
 
-if (isNaN(userAge)) {
-    userAge = prompt('The age is incorrect. Please enter your age', userAge);
+//проверка на 0 делаеться для случая когда вводиться пустая строка - она преобразуеться в 0 посредсвом метода Number в 5-й строке
+while (isNaN(userAge) || userAge == 0) {
+    userAge = Number(prompt('The age is incorrect. Please enter your age', String(userAge)));
 }
 
 if (userAge < 18) {
@@ -17,10 +18,10 @@ if (userAge < 18) {
 } else  if (userAge >= 18 && userAge <= 22) {
     let accessConfirm = confirm('Are you sure you want to continue?');
     if (accessConfirm) {
-        alert(welcome + userName);
+        alert(welcomeMassage + userName);
     } else {
         alert(notAllowedMassage);
     }
 } else {
-    alert(welcome + userName);
+    alert(welcomeMassage + userName);
 }
