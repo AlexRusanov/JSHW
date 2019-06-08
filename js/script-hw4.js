@@ -1,5 +1,5 @@
 // const createNewUser = () => {
-//     const newUser,
+//     let newUser,
 //         firstName = prompt('Enter your first name'),
 //         lastName = prompt('Enter your last name');
 //
@@ -7,10 +7,10 @@
 //                 lastName,
 //                 getLogin(){
 //         return firstName.substr(0, 1).toLowerCase() + lastName.toLowerCase();
-//     }}
+//     }};
 //
 //     return newUser;
-// }
+// };
 //
 // console.log(createNewUser().getLogin());
 
