@@ -61,7 +61,3 @@ let stud = createStudent();
 let studWithTable = fillStudentsTable(stud);
 console.log(studWithTable);
 console.log(studWithTable.table);
-
-console.log(isTransferredToNextCourse(studWithTable));
-
-console.log(getGradePointAverage(studWithTable));
