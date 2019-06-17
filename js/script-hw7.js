@@ -1,9 +1,15 @@
 const countdownTimer = () => {
     let i = 10;
+    const timer = document.createElement('span');
+    timer.textContent = 'Self-destruction at ' + i;
+    document.body.insertBefore(timer, document.querySelector('script'));
     let timerId = setInterval(() => {
-        console.log(i);
-        if (i === 1) clearInterval(timerId);
         i--;
+        timer.textContent = 'Self-destruction at ' + i;
+        if (i === 0) {
+            clearInterval(timerId);
+            timer.remove();
+        }
     }, 1000);
 };
 
