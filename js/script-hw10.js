@@ -2,7 +2,8 @@ const inputPasswordIcon = document.getElementById("input-password-icon"),
       confirmPasswordIcon = document.getElementById("confirm-password-icon"),
       submitBtn = document.querySelector(".btn"),
       passwordInput = document.getElementById("input-password"),
-      passwordConfirm = document.getElementById("confirm-password");
+      passwordConfirm = document.getElementById("confirm-password"),
+      secondInputWrapper = document.getElementsByClassName("input-wrapper")[1];
 
 const showHidePassword = (passwordEyeIcon) => {
     passwordEyeIcon.classList.toggle("fa-eye-slash");
@@ -23,18 +24,20 @@ confirmPasswordIcon.onclick = (event) => {
     showHidePassword(event.target);
 };
 
+let validationAlert = document.createElement("div");
+validationAlert.innerText = "Нужно ввести одинаковые значения!!!";
+validationAlert.style.color = "red";
+
 submitBtn.onclick = (event) => {
     event.preventDefault();
-    let validationAlert;
-    if (passwordInput.value === passwordConfirm.value) {
+    if (passwordInput.value && passwordInput.value === passwordConfirm.value) {
+        if (secondInputWrapper.lastElementChild === validationAlert) {
+            validationAlert.remove();
+        }
         alert("You are welcome");
     } else {
-        validationAlert = document.createElement("div");
-        validationAlert.innerText = "Нужно ввести одинаковые значения!!!";
-        validationAlert.style.color = "red";
-        confirmPasswordIcon.after(validationAlert);
-        setTimeout(() => {
-            validationAlert.remove();
-        }, 3000);
+        if (secondInputWrapper.lastElementChild !== validationAlert) {
+            confirmPasswordIcon.after(validationAlert);
+        }
     }
 };
