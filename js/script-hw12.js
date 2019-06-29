@@ -23,7 +23,7 @@ const bannersWrapper = document.querySelector(".images-wrapper"),
           }, 1);
       },
       bannerFadeIn = (banner) => {
-          $(banner).fadeIn(500);
+          $(banner).delay(500).fadeIn(500);
       },
       bannerFadeOut = (banner) => {
           $(banner).fadeOut(500);
